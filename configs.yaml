@@ -1,5 +1,8 @@
 defaults:
 
+  use_wandb: False
+  run_name: "dreamerv3"
+
   logdir: null
   traindir: null
   evaldir: null

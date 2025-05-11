@@ -223,6 +223,10 @@ def main(config):
     # step in logger is environmental step
     logger = tools.Logger(logdir, config.action_repeat * step)
 
+    if config.use_wandb:
+        import wandb
+        wandb.init(project="dreamerv3", config=config, group=config.task, name=config.run_name, sync_tensorboard=True)
+
     print("Create envs.")
     if config.offline_traindir:
         directory = config.offline_traindir.format(**vars(config))
